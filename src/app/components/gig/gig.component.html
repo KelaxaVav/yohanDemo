@@ -1,0 +1,224 @@
+<div class="personalInformation">
+    <div class="title">
+        <h3>Upload Your First Gig</h3>
+        <!-- <div class="firstname">
+            <p><b>Name</b></p>
+            <p>William Darcy <span>
+                    <i class="pi pi-info-circle"></i>
+                </span></p>
+        </div> -->
+        <!-- <hr style="margin-top: 25px;"> -->
+    </div>
+    <div class="card flex justify-content-center">
+        <p-stepper class="none">
+            <p-stepperPanel header="Overview">
+                <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
+                    <div class="flex flex-column h-12rem">
+                        <div class="firstname">
+                            <p><b>Gig Category</b></p>
+                            <div class="card flex justify-content-center" style="padding-bottom: 15px;">
+                                <p-dropdown [options]="categories" [(ngModel)]="selectedCategory" placeholder="Select a Category"
+                                    [editable]="true" optionLabel="name" />
+                            </div>
+                            <div class="card flex justify-content-center" style="padding-bottom: 15px;">
+                                <p-dropdown [options]="subCategories" [(ngModel)]="selectedSubCategory" placeholder="Select a Subcategory"
+                                    [editable]="true" optionLabel="name" />
+                            </div>
+                        </div>
+                        <div class="firstname">
+                            <p><b>Gig Title</b></p>
+                            <div class="card flex justify-content-center" style="padding-bottom: 15px;">
+                                <div class="card flex justify-content-center">
+                                    <p-floatLabel>
+                                        <input pInputText id="username" [(ngModel)]="gigTitle" style="width: 100%;" (click)="setTitle()"/>
+                                        <label id=labelTitle for="title"><b>I will</b> do something I'm really good at</label>
+                                    </p-floatLabel>
+                                    <p style="display: flex;flex-direction: row-reverse;margin-top: 1px;">(0/80)</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="firstname">
+                            <p><b>Gig Description</b></p>
+                            <div class="card flex justify-content-center" style="padding-bottom: 15px;">
+                                <div class="card flex justify-content-center">
+                                    <p-editor [(ngModel)]="gigDescription" [style]="{ height: '284px' }" class="rich-text-editor">
+                                        <ng-template pTemplate="header">
+                                            <span class="ql-formats">
+                                                <button type="button" class="ql-bold" aria-label="Bold"></button>
+                                                <button type="button" class="ql-italic" aria-label="Italic"></button>
+                                                <button type="button" class="ql-underline" aria-label="Underline"></button>
+                                            </span>
+                                        </ng-template>
+                                    </p-editor>
+                                    <p style="display: flex;flex-direction: row-reverse;margin-top: 1px;">(0/200)</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="flex pt-4 justify-content-end">
+                        <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                            (onClick)="nextCallback.emit()" />
+                    </div>
+                </ng-template>
+            </p-stepperPanel>
+            <p-stepperPanel header="Pricing">
+                <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                    let-index="index">
+                    <div class="flex flex-column h-12rem">
+                        <div class="firstname">
+                            <p><b>Starting Price</b></p>
+                            <div class="card flex justify-content-center" style="padding-bottom: 15px;">
+                                <div class="card flex justify-content-center">
+                                    <p-floatLabel>
+                                        <input pInputText id="username" [(ngModel)]="gigTitle" style="width: 100%;" />
+                                        <label for="title">$USD</label>
+                                    </p-floatLabel>
+                                    <p style="margin-top: 1px;">(Starting price should be higher than $100)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex pt-4 justify-content-between">
+                        <button style="background: none;
+                        margin-right: 50px;
+                        border: none;" (click)="prevCallback.emit()">
+                            <div style="display: flex;
+                        align-items: center;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        width: 50px;">
+                                <i class="pi pi-angle-left"></i>
+                                <p style="text-decoration-line: underline">Back</p>
+                            </div>
+                        </button>
+                        <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                            (onClick)="nextCallback.emit()" />
+                    </div>
+                </ng-template>
+            </p-stepperPanel>
+            <p-stepperPanel header="Requirements">
+                <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback" let-index="index">
+                    <div class="flex flex-column h-12rem">
+                         <div class="firstname">
+                            <p><b>Add a Question</b></p>
+                            <div class="card flex justify-content-center" style="padding-bottom: 15px;">
+                                <div class="card flex justify-content-center">
+                                    <textarea 
+                                        rows="5"
+                                        cols="30"
+                                        pInputTextarea 
+                                        style="width: 100%;"
+                                        [(ngModel)]="question">
+                                    </textarea>
+                                    <p style="display: flex;flex-direction: row-reverse;margin-top: 1px;">(0/400)</p>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="firstname">
+                            <p><b>Get the Answer in a Form of :</b></p>
+                                <div class="card flex justify-content-center" style="padding-bottom: 15px;">
+                                    <p-dropdown [style]="{width:'80%'}" [options]="categories" [(ngModel)]="selectedCategory" placeholder="Select a City"
+                                        [editable]="true" optionLabel="name" />
+                                </div>
+                        </div>
+
+                    </div>
+                  <div class="flex pt-4 justify-content-between">
+                        <button style="background: none;
+                        margin-right: 50px;
+                        border: none;" (click)="prevCallback.emit()">
+                            <div style="display: flex;
+                        align-items: center;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        width: 50px;">
+                                <i class="pi pi-angle-left"></i>
+                                <p style="text-decoration-line: underline">Back</p>
+                            </div>
+                        </button>
+                        <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                            (onClick)="nextCallback.emit()" />
+                    </div>
+                </ng-template>
+            </p-stepperPanel>
+            <p-stepperPanel header="Gallery">
+                <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
+                    <div class="flex flex-column h-12rem">
+                        <div class="firstname">
+                            <p>To comply with AfterFive's terms of service, make sure to upload only content you either
+                                own or you have the permission or license to use </p>
+                        </div>
+
+                    </div>
+                    <div class="country" style="padding-bottom: 10px;" type="file">
+                        <button class="upload-file-card" style="background-color: white;cursor: pointer;height: 200px;width: 200px;" type="button"
+                            (click)="imageUpload1.click()" *ngIf="!imageSrc1">
+                            <div>
+                                <i class="pi pi-image" style="font-size: 45px;"></i>
+                                <p style="margin: 0px;">Drag & Drop a Photo or</p>
+                                <p style="margin: 0px;color: #000;margin-bottom: 5px;"><b>Browse</b></p>
+                            </div>
+
+                        </button>
+                        <div class="image " style="    justify-content: center;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;" *ngIf="imageSrc1">
+                            <img [src]="imageSrc1" alt="your image"
+                                style="width: 100%;height: 200px;object-fit: cover;border-radius: 8px;" alt=""
+                                srcset="">
+                            <p-button
+                                [style]="{width:'170px', height:'40px',marginTop:'10px',border:'none',backgroundColor:'#252525'}"
+                                label="Change" [raised]="true" />
+                        </div>
+                        <input (change)="onUpload($event,0)" style="display: none;" #imageUpload1 type="file"
+                            name="certificate" id="certificate">
+                    </div>
+                    <div class="country" style="padding-bottom: 20px;" type="file">
+                        <button class="upload-file-card" style="margin-top:0px;background-color: white;cursor: pointer;height: 200px;width: 200px;" type="button"
+                            (click)="imageUpload2.click()" *ngIf="!imageSrc2">
+                            <div>
+                                <i class="pi pi-image" style="font-size: 45px;"></i>
+                                <p style="margin: 0px;">Drag & Drop a Photo or</p>
+                                <p style="margin: 0px;color: #000;margin-bottom: 5px;"><b>Browse</b></p>
+                            </div>
+
+                        </button>
+                        <div class="image " style="    justify-content: center;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;" *ngIf="imageSrc1">
+                            <img [src]="imageSrc2" alt="your image"
+                                style="width: 100%;height: 200px;object-fit: cover;border-radius: 8px;" alt=""
+                                srcset="">
+                            <p-button
+                                [style]="{width:'170px', height:'40px',marginTop:'10px',border:'none',backgroundColor:'#252525'}"
+                                label="Change" [raised]="true" />
+                        </div>
+                        <input (change)="onUpload($event,1)" style="display: none;" #imageUpload2 type="file"
+                            name="certificate" id="certificate">
+                    </div>
+                    <div class="flex pt-4 justify-content-between">
+                        <button style="background: none;
+                        margin-right: 50px;
+                        border: none;" (click)="prevCallback.emit()">
+                            <div style="display: flex;
+                        align-items: center;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        width: 50px;">
+                                <i class="pi pi-angle-left"></i>
+                                <p style="text-decoration-line: underline">Back</p>
+                            </div>
+                        </button>
+                        <p-button label="Publish Gig" iconPos="right"
+                            (onClick)="submit()" />
+                    </div>
+                </ng-template>
+            </p-stepperPanel>
+        </p-stepper>
+    </div>
+
+</div>

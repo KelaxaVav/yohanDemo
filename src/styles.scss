@@ -1,1 +1,86 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+@import "../node_modules/quill/dist/quill.core.css";
+@import "../node_modules/quill/dist/quill.snow.css";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.d-flex-space-between {
+
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.upload-file-card {
+    border-style: solid;
+    height: 250px;
+    width: 250px;
+    border-radius: 8px;
+    border-width: .01cm;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.p-button {
+    color: #EFEFEF;
+    background: #0B0F4D;
+    border: 1px solid #0B0F4D;
+}
+.none{
+    .p-stepper-number{
+      display: none !important;
+    }
+    .p-stepper-separator{
+        width: 10px !important;
+        margin: 10px;
+      }
+
+      .p-stepper-header{
+        padding-right: 0;
+    padding-left: 0;
+      }
+      .p-stepper-title{
+        margin: 0;
+      }
+      .p-stepper-panels{
+        padding: 0;
+      }
+  }
+
+  .rich-text-editor{
+    .p-editor-container{
+      .p-editor-toolbar{
+        border-bottom: 0px !important;
+        background: white;
+
+        .ql-formats{
+          border: 1px solid #e5e7eb;
+    background: #EFEFEF;
+    border-radius: 12px;
+    display: flex;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: max-content;
+        }
+      }
+    }
+  }
+
+  .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+    background: #0B0F4D;
+}
+
+.p-yearpicker-year {
+  width: 25%;
+}
+.p-datepicker-header{
+  display: none;
+}
+
+.p-calendar .p-datepicker {
+  min-width: 100%;
+  width: 60vw;
+}

@@ -1,0 +1,380 @@
+<div class="personalInformation">
+    <div class="title">
+        <h3 style="margin-bottom: 3px;">Edit Public Profile</h3>
+        <p style="margin-top: 0;color: rgb(252, 87, 87);">
+            All sections are required
+        </p>
+        <div class="firstname">
+            <p><b>First Name</b></p>
+            <p>William <span>
+                    <i class="pi pi-info-circle"></i>
+                </span></p>
+            <hr style="margin-top: 25px;">
+        </div>
+
+        <div class="firstname">
+            <div style="display: flex;justify-content: space-between;align-items: center;">
+                <div>
+                    <p><b>Last Initial</b></p>
+                </div>
+                <div style="display: flex;justify-content: space-between;align-items: end;">
+                    <div style="margin-bottom: 5px;padding-right: 15px;">
+                        <div>Do not display</div>
+                    </div>
+                    <div>
+                        <p-inputSwitch onLabel="Y" offLabel="N" [(ngModel)]="doNotDisplay" />
+                    </div>
+                </div>
+            </div>
+            <p style="margin: 0;">D . </p>
+            <hr style="margin-top: 25px;">
+        </div>
+
+        <div class="firstname">
+            <div class="d-flex-space-between">
+                <div>
+                    <p><b>About</b></p>
+                </div>
+                <div>
+                    <p style="text-decoration: underline;" (click)="enableDisableAbout()"><b>{{enableAbout ? 'Cancel' :
+                            'Add'}}</b></p>
+                </div>
+            </div>
+            <div *ngIf="enableAbout">
+                <div class="card flex justify-content-center">
+                    <textarea rows="5" cols="30" style="width: 100%;" pInputTextarea [(ngModel)]="aboutVal">
+    </textarea>
+                    <p
+                        style="display: flex;flex-direction: row-reverse;margin-top: 1px;margin-top: -30px;margin-right: 10px;">
+                        (0/206)</p>
+                </div>
+                <div class="flex pt-4 justify-content-start">
+                    <p-button label="Save " (onClick)="submit()" />
+                </div>
+            </div>
+            <hr style="margin-top: 15px;">
+        </div>
+
+        <div class="firstname">
+            <div class="d-flex-space-between">
+                <div>
+                    <p><b>Education</b></p>
+                </div>
+                <div>
+                    <p *ngIf="!addEducation" style="text-decoration: underline;" (click)="enableDisableEducation()">
+                        <b>{{enableEducation ? 'Cancel' :
+                            'Add'}}</b></p>
+                </div>
+            </div>
+            <div *ngIf="enableEducation">
+                <div class="card flex justify-content-center">
+                    <div class="card flex justify-content-center" style="padding-bottom: 10px;">
+                        <p style="   margin-bottom: 5px;margin-top: 0px;">Country of school</p>
+                        <p-dropdown [options]="country" dropdownIcon="none" [(ngModel)]="selectedSchoolCountry"
+                            optionLabel="name" [style]="{width:'90%'}" [showClear]="false">
+                            <ng-template pTemplate="selectedTelCountry">
+                                <div class="flex align-items-center gap-2">
+                                    <div>{{ selectedSchoolCountry.name }}</div>
+                                </div>
+                            </ng-template>
+                            <ng-template let-country pTemplate="item">
+                                <div class="flex align-items-center gap-2">
+
+                                    <div>{{ country.name }}</div>
+                                </div>
+                            </ng-template>
+                        </p-dropdown>
+                    </div>
+                    <div class="card flex justify-content-center" style="padding-bottom: 150x;">
+                        <p-floatLabel>
+                            <p style="   margin-bottom: 5px;margin-top: 0px;">School name</p>
+                            <input pInputText id="school" [(ngModel)]="aboutVal" style="width: 90%;" />
+                        </p-floatLabel>
+                    </div>
+                    <div class="card flex justify-content-center" style="padding-bottom: 10px;">
+                        <p style="   margin-bottom: 5px;margin-top: 0px;">Degree</p>
+                        <p-dropdown [options]="degree" dropdownIcon="none" [(ngModel)]="selectedDegree"
+                            optionLabel="name" [style]="{width:'60%'}" [showClear]="false">
+                            <ng-template pTemplate="selectedTelCountry">
+                                <div class="flex align-items-center gap-2">
+                                    <div>{{ selectedDegree.name }}</div>
+                                </div>
+                            </ng-template>
+                            <ng-template let-degree pTemplate="item">
+                                <div class="flex align-items-center gap-2">
+
+                                    <div>{{ degree.name }}</div>
+                                </div>
+                            </ng-template>
+                        </p-dropdown>
+                    </div>
+                    <div class="card flex justify-content-center" style="padding-bottom: 10px;">
+                        <p style="   margin-bottom: 5px;margin-top: 0px;">Major</p>
+                        <p-dropdown [options]="major" dropdownIcon="none" [(ngModel)]="selectedMajor" optionLabel="name"
+                            [style]="{width:'60%'}" [showClear]="false">
+                            <ng-template pTemplate="selectedTelCountry">
+                                <div class="flex align-items-center gap-2">
+                                    <div>{{ selectedMajor.name }}</div>
+                                </div>
+                            </ng-template>
+                            <ng-template let-major pTemplate="item">
+                                <div class="flex align-items-center gap-2">
+
+                                    <div>{{ major.name }}</div>
+                                </div>
+                            </ng-template>
+                        </p-dropdown>
+                    </div>
+                    <div class="card flex justify-content-center" style="width:40%;padding-bottom: 10px;">
+                        <p style="   margin-bottom: 5px;margin-top: 0px;">Year of graduation</p>
+
+
+                        <p-calendar [(ngModel)]="date" shortYearCutoff="50" view="year" dateFormat="yy" />
+                    </div>
+                </div>
+                <div class="flex pt-4 justify-content-start">
+                    <p-button label="Add " (onClick)="submit()" />
+                </div>
+            </div>
+            <div *ngIf="addEducation">
+                <div style="width: 100%;height: 130px;background-color: #EFEFEF;display: flex;flex-direction: row;
+                justify-content: space-around;
+                align-items: center;border-radius: 15px;margin-bottom: 15px;">
+                    <div class="main">
+                        <p>
+                            <b>
+                                Cambridge University
+                            </b>
+                        </p>
+                        <p>
+                            United Kingdom
+                        </p>
+                        <p>
+                            B.A - 2023
+                        </p>
+                    </div>
+                    <div class="edit">
+                        <p style="text-decoration: underline;">
+                            <b>
+                                Edit
+                            </b>
+                        </p>
+                    </div>
+                    <div class="delete">
+                        <i class="pi pi-trash" style="font-size: 25px;color: red;"></i>
+                    </div>
+                </div>
+                <div style="width: 100%;height: 130px;background-color: #EFEFEF;display: flex;flex-direction: column;
+                justify-content: center;
+                align-items: center;border-radius: 15px;">
+                    <div class="delete">
+                        <i class="pi pi-graduation-cap" style="font-size: 50px;"></i>
+                    </div>
+                    <div class="edit">
+                        <p style="text-decoration: underline;font-size: 20px;margin-top: 0px;">
+                            <b>
+                                Add another school
+                            </b>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <hr style="margin-top: 15px;">
+        </div>
+        <div class="firstname">
+            <div class="d-flex-space-between" style="margin-bottom: 0px;">
+                <div>
+                    <p><b>Languages</b></p>
+                </div>
+                <div>
+                    <p style="text-decoration: underline;" (click)="enableDisableLanguage()"><b>{{enableLanguage ?
+                            'Cancel' :
+                            'Add'}}</b></p>
+                </div>
+            </div>
+            <p style="margin-top: -10px;">Only 3 Allowed</p>
+            <div *ngIf="enableLanguage">
+                <div class="d-flex-space-between" style="margin-bottom: 0px;align-items: center;">
+                    <div style="min-width: 150px;">
+                        <p>English - Native</p>
+                    </div>
+                    <div class="edit">
+                        <p style="text-decoration: underline;">
+                            <b>
+                                Edit
+                            </b>
+                        </p>
+                    </div>
+                    <div class="delete">
+                        <i class="pi pi-trash" style="font-size: 25px;color: red;"></i>
+                    </div>
+                </div>
+                <div class="d-flex-space-between" style="margin-bottom: 0px;align-items: center;margin-top: -15px;">
+                    <div style="min-width: 150px;">
+                        <p>French - Fluent</p>
+                    </div>
+                    <div class="edit">
+                        <p style="text-decoration: underline;">
+                            <b>
+                                Edit
+                            </b>
+                        </p>
+                    </div>
+                    <div class="delete">
+                        <i class="pi pi-trash" style="font-size: 25px;color: red;"></i>
+                    </div>
+                </div>
+                <div class="card flex justify-content-center" style="padding-bottom: 10px;">
+                    <p style="   margin-bottom: 5px;margin-top: 0px;">Language</p>
+                    <p-dropdown [options]="language" dropdownIcon="none" [(ngModel)]="selectedLanguage"
+                        optionLabel="name" [style]="{width:'50%'}" [showClear]="false">
+                        <ng-template pTemplate="selectedTelCountry">
+                            <div class="flex align-items-center gap-2">
+                                <div>{{ selectedLanguage.name }}</div>
+                            </div>
+                        </ng-template>
+                        <ng-template let-language pTemplate="item">
+                            <div class="flex align-items-center gap-2">
+
+                                <div>{{ language.name }}</div>
+                            </div>
+                        </ng-template>
+                    </p-dropdown>
+                </div>
+                <div class="card flex justify-content-center" style="padding-bottom: 10px;">
+                    <p style="   margin-bottom: 5px;margin-top: 0px;">Fluency Level</p>
+                    <div class="select-level" style="display: flex;overflow: auto;">
+                        <p-button label="Basic" [style]="{ marginRight: '8px',
+                    minWidth: '120px',color:'black',background:'#ffffff'}" />
+                        <p-button label="Conversational" [style]="{ marginRight: '8px',
+                    minWidth: '120px',color:'black',background:'#ffffff'}" />
+                        <p-button label="Fluent" [style]="{marginRight: '8px',
+                    minWidth: '120px'}" />
+                        <p-button label="Native" [style]="{ marginRight: '8px',
+                    minWidth: '120px',color:'black',background:'#ffffff'}" />
+                    </div>
+                </div>
+                <div class="card flex justify-content-center" style="padding-bottom: 10px;">
+                    <div class="select-level" style="display: flex;overflow: auto;">
+
+                        <p-button label="Add another language" [style]="{marginRight: '8px',
+                    minWidth: '120px'}" />
+                        <p-button label="Save" [style]="{marginRight: '8px',
+                    minWidth: '120px'}" />
+
+                    </div>
+                </div>
+            </div>
+            <hr style="margin-top: 15px;">
+        </div>
+        <div class="firstname">
+            <div class="d-flex-space-between" style="margin-bottom: 0px;">
+                <div>
+                    <p><b>Skills</b></p>
+                </div>
+                <div>
+                    <p style="text-decoration: underline;" (click)="enableDisableSkills()"><b>{{enableSkills ? 'Cancel'
+                            :
+                            'Add'}}</b></p>
+                </div>
+            </div>
+            <p style="margin-top: -10px;">Only 10 Allowed</p>
+            <div *ngIf="enableSkills">
+                <div class="d-flex-space-between" style="margin-bottom: 0px;align-items: center;">
+                    <div style="min-width: 150px;">
+                        <p>UI/UX Design</p>
+                    </div>
+                    <div class="edit">
+                        <p style="text-decoration: underline;">
+                            <b>
+                                Edit
+                            </b>
+                        </p>
+                    </div>
+                    <div class="delete">
+                        <i class="pi pi-trash" style="font-size: 25px;color: red;"></i>
+                    </div>
+                </div>
+                <div class="card flex justify-content-center" style="padding-bottom: 10px;">
+                    <p style="   margin-bottom: 10px;margin-top: 0px;">Language</p>
+                    <p-dropdown [options]="skills" [(ngModel)]="selectedSkill" optionLabel="name"
+                        [style]="{width:'50%'}" [showClear]="false" placeholder="Select a Skill">
+                        <ng-template pTemplate="selectedSkill">
+                            <div class="flex align-items-center gap-2">
+                                <div>{{ selectedLanguage.name }}</div>
+                            </div>
+                        </ng-template>
+                        <ng-template let-skill pTemplate="item">
+                            <div class="flex align-items-center gap-2">
+
+                                <div>{{ skill.name }}</div>
+                            </div>
+                        </ng-template>
+                    </p-dropdown>
+                </div>
+                <div class="card flex justify-content-center" style="padding-bottom: 10px;">
+                    <p style="   margin-bottom: 5px;margin-top: 0px;">Experience Level</p>
+                    <div class="select-level" style="display: flex;overflow: auto;">
+                        <p-button label="Basic" [style]="{ marginRight: '8px',
+                    minWidth: '120px',color:'black',background:'#ffffff'}" />
+                        <p-button label="Intermediate" [style]="{ marginRight: '8px',
+                    minWidth: '120px',color:'black',background:'#ffffff'}" />
+                        <p-button label="Expert" [style]="{marginRight: '8px',
+                    minWidth: '120px'}" />
+                    </div>
+                </div>
+                <div class="card flex justify-content-center" style="padding-bottom: 10px;">
+                    <div class="select-level" style="display: flex;overflow: auto;">
+
+                        <p-button label="Add another skill" [style]="{marginRight: '8px',
+                    minWidth: '120px'}" />
+                        <p-button label="Save" [style]="{marginRight: '8px',
+                    minWidth: '120px'}" />
+
+                    </div>
+                </div>
+            </div>
+            <hr style="margin-top: 15px;">
+        </div>
+
+        <div class="firstname">
+            <div class="d-flex-space-between">
+                <div>
+                    <p><b>Profiles on other platforms </b></p>
+                </div>
+                <div>
+                    <p style="text-decoration: underline;" (click)="enableDisableProfiles()"><b>{{enableProfiles ?
+                        saveProfileData ? 'Edit' : 'Cancel' :
+                            'Add'}}</b></p>
+                </div>
+            </div>
+            <div *ngIf="enableProfiles && !saveProfileData">
+                <div class="card flex justify-content-center" style="padding-bottom: 150x;">
+                    <p-floatLabel>
+                        <p style="   margin-bottom: 5px;margin-top: 0px;">Upwork</p>
+                        <input pInputText id="school" [(ngModel)]="aboutVal" style="width: 100%;" />
+                    </p-floatLabel>
+                </div>
+                <div class="card flex justify-content-center" style="padding-bottom: 150x;margin-bottom: 15px;">
+                    <p-floatLabel>
+                        <p style="   margin-bottom: 5px;margin-top: 0px;">Fiverr</p>
+                        <input pInputText id="school" [(ngModel)]="aboutVal" style="width:100%;" />
+                    </p-floatLabel>
+                </div>
+                <div class="card flex justify-content-center" style="padding-bottom: 10px;">
+                    <div class="select-level" style="display: flex;overflow: auto;">
+
+                        <p-button label="Save" [style]="{marginRight: '8px',
+                    minWidth: '120px'}" (click)="saveProfile()"/>
+
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="enableProfiles && saveProfileData">
+                <p>upwork&#64;dacrywill</p>
+                <p>fiverr&#64;darcywill</p>
+            </div>
+        </div>
+    </div>
+</div>

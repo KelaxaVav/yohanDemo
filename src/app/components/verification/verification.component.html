@@ -1,0 +1,113 @@
+<div class="personalInformation">
+    <div class="title">
+        <h3>Verification</h3>
+        <div class="firstname">
+            <p style="color: black;">Identity Card</p>
+            <p>Make sure your photos aren't blurry and the front of your identity card clearly shows your face  </p>
+        </div>
+        <div class="country" style="padding-bottom: 5px;">
+            <div class="upload-file-card">
+                <i class="pi pi-id-card" style="font-size: 45px;"></i>
+                <p style="font-size: 20px; color: #000;margin-bottom: 5px;">Upload front of ID </p>
+                <p style="margin-top: 0px;">JPEG or PNG only</p>
+            </div>
+        </div>
+        <div class="country" style="padding-bottom: 5px;">
+            <div class="upload-file-card">
+                <i class="pi pi-id-card" style="font-size: 45px;"></i>
+                <p style="font-size: 20px; color: #000;margin-bottom: 5px;">Upload back of ID </p>
+                <p style="margin-top: 0px;">JPEG or PNG only</p>
+            </div>
+        </div>
+        <hr style="margin-top: 25px;">
+    </div>
+
+    <div class="title">
+        <div class="firstname">
+            <p style="color: black;">Verification Selfie</p>
+            <p>upload a selfie of yourself while adhering to following guidelines :  </p>
+        </div>
+      
+        <div class="country" style="padding-bottom: 5px;color: #000;">
+            <ol type="1">
+                <li>
+                    <p >Clear and focused:<span style="color:#4b5563;"> the selfie must be sharp and not blurry. </span></p>
+                </li>
+                
+                <li>
+                    <p >Well-Lit:<span style="color:#4b5563;"> use good lighting,preferably natural light,ensuring there are no shadows on your face. </span></p>
+                </li>
+                <li>
+                    <p >Face Centered: <span style="color:#4b5563;"> Your face should be centered in the frame. </span></p>
+                </li>
+                <li>
+                    <p >Natural Background: <span style="color:#4b5563;"> Use a plain, uncluttered background. </span></p>
+                </li>
+                <li>
+                    <p >No Obstructions: <span style="color:#4b5563;"> Ensure no hats, sunglasses, or masks are covering your face. </span></p>
+                </li>
+                <li>
+                    <p >Neutral Expression: <span style="color:#4b5563;"> Maintain a neutral expression avoiding extreme facial expressions. </span></p>
+                </li>
+                <li>
+                    <p >Single Person: <span style="color:#4b5563;"> Only your face should be visible: no other people should be in the photo. </span></p>
+                </li>
+                <li>
+                    <p >Recent Photo: <span style="color:#4b5563;"> The selfie should be a recent photo the accurately represents your current appearance. </span></p>
+                </li>
+                <li>
+                    <p >No Filters or Effects: <span style="color:#4b5563;"> Do not use any camera filters or effects. </span></p>
+                </li>
+                <li>
+                    <p >Full Face Visible: <span style="color:#4b5563;"> Ensure your entire face, from the top of your head to your chin, is visible in the selfie </span></p>
+                </li>
+                
+            </ol> 
+            <div class="image" >
+                <img src="assets/verification.png" style="width: 100%;" alt="" srcset="">
+            </div>
+            <div class="country" style="padding-bottom: 5px;">
+                <div class="upload-file-card">
+                    <i class="pi pi-id-card" style="font-size: 45px;"></i>
+                    <p style="font-size: 20px; color: #000;margin-bottom: 5px;">Verification Selfie </p>
+                    <p style="margin-top: 0px;">JPEG or PNG only</p>
+                </div>
+            </div>
+        </div>
+        <hr style="margin-top: 25px;">
+        <div class="country" style="padding-bottom: 20px;">
+            <p><b>Resume / CV</b></p>
+            <div class="upload-file-card">
+                <i class="pi pi-id-card" style="font-size: 45px;"></i>
+                <p style="font-size: 20px; color: #000;margin-bottom: 5px;">Upload resume </p>
+                <p style="margin-top: 0px;">PDF only</p>
+            </div>
+        </div>
+        
+        <hr style="margin-top: 25px;">
+        <div class="country" style="padding-bottom: 20px;" type="file">
+            <p><b>Degrees & Certificates</b></p>
+            <p> Make sure your photos aren't blurry and the front of your identity card clearly shows your face</p>
+            <button class="upload-file-card" style="background-color: white;cursor: pointer;" type="button" (click)="certificateUploader.click()" *ngIf="!imageSrc">
+            <div >
+                <i class="pi pi-id-card" style="font-size: 45px;"></i>
+                <p style="font-size: 20px; color: #000;margin-bottom: 5px;">Upload </p>
+                <p style="margin-top: 0px;">JPEG/PNG/PDF only</p>
+            </div>
+            
+        </button>
+        <div class="image " style="    justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;" *ngIf="imageSrc">
+            <img [src]="imageSrc" alt="your image"  style="width: 100%;height: 200px;object-fit: cover;border-radius: 8px;" alt="" srcset="">
+            <p-button [style]="{width:'170px', height:'40px',marginTop:'10px',border:'none',backgroundColor:'#252525'}" label="Change" [raised]="true"  />
+        </div>
+        <input (change)="onUpload($event)" style="display: none;" #certificateUploader type="file" name="certificate" id="certificate">
+        </div>
+        <p-button  label="Add another document" iconPos="right" />
+        <hr style="margin-top: 25px;">
+        
+     
+    </div>
+    </div>

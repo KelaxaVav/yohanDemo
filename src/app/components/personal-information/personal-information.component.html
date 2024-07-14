@@ -1,0 +1,312 @@
+<div class="personalInformation">
+    <div class="title">
+        <h3>Personal Information</h3>
+    </div>
+    <div class="firstname">
+        <p><b>Name</b></p>
+        <p>William Darcy <span>
+                <i class="pi pi-info-circle"></i>
+            </span></p>
+    </div>
+
+    <hr style="margin-top: 25px;">
+    <div class="form" *ngIf="isShowPersonalInfo">
+
+        <div class="country">
+            <p><b>Country</b></p>
+            <p-dropdown [options]="countries" [(ngModel)]="selectedCountry" optionLabel="name" [style]="{width:'70vw'}"
+                [showClear]="false" placeholder="Your country">
+                <ng-template pTemplate="selectedItem">
+                    <div class="flex align-items-center gap-2">
+                        <!-- <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
+                        [class]="'flag flag-' + selectedCountry.code.toLowerCase()" style="width: 18px" /> -->
+                        <div>{{ selectedCountry.name }}</div>
+                    </div>
+                </ng-template>
+                <ng-template let-country pTemplate="item">
+                    <div class="flex align-items-center gap-2">
+                        <!-- <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
+                        [class]="'flag flag-' + country.code.toLowerCase()" style="width: 18px" /> -->
+                        <div>{{ country.name }}</div>
+                        <!-- <div >
+                        <i class="pi pi-check"></i>
+                    </div> -->
+                    </div>
+                </ng-template>
+            </p-dropdown>
+        </div>
+
+        <hr style="margin-top: 25px;">
+
+        <div class="phone">
+            <p><b>Phone number</b></p>
+            <div style="display: flex;">
+            <div>
+
+                <p-dropdown [options]="countries" [(ngModel)]="selectedTelCountry"  optionLabel="tel"
+                    [style]="{width:'100%',borderRadius:' 8px 0px 0px 8px'}" [showClear]="false" placeholder="Your country">
+                    <ng-template pTemplate="selectedTelCountry">
+                        <div class="flex align-items-center gap-2">
+                            <img [src]="selectedTelCountry.img" [class]="'flag flag-' + selectedCountry.code.toLowerCase()"
+                                style="width: 18px" />
+                            <div>{{ selectedCountry.name }}</div>
+                        </div>
+                    </ng-template>
+                    <ng-template let-country pTemplate="item" >
+                    <div style="display: flex;
+                    justify-content: space-between;
+                    flex-direction: row;
+                    align-items: center;">
+                        <div class="flex align-items-center gap-2" >
+                            <img [src]="country.img" [class]="'flag flag-' + country.code.toLowerCase()"
+                                style="width: 18px" />
+                        </div>
+                        <div>
+                            <div>{{ country.tel +' +'+ country.code}}</div>
+                        </div>
+                        </div>
+                    </ng-template>
+                </p-dropdown>
+            </div>
+            <div>
+            <p-floatLabel>
+                <input pInputText id="num" style="width: 100%;border-radius: 0px 8px 8px 0px;" />
+                <!-- <label for="number">Address line 2</label> -->
+            </p-floatLabel>
+        </div>
+    </div>
+        </div>
+
+        <hr style="margin-top: 25px;">
+
+        <div class="flex flex-wrap gap-3">
+            <p><b>Sex</b></p>
+            <div class="flex align-items-center d-flex-space-between" style="padding-bottom: 10px;">
+                <label for="ingredient1" class="ml-2">
+                    Male
+                </label>
+                <p-radioButton name="male" value="male" [(ngModel)]="gender" inputId="male" />
+            </div>
+
+            <div class="flex align-items-center d-flex-space-between ">
+                <label for="ingredient2" class="ml-2">
+                    Female
+                </label>
+                <p-radioButton name="female" value="female" [(ngModel)]="gender" inputId="female" />
+            </div>
+        </div>
+
+        <hr style="margin-top: 25px;">
+
+        <div class="Address">
+            <p><b>Address </b></p>
+            <div class="card flex justify-content-center">
+                <p-floatLabel>
+                    <input pInputText id="address1" style="width: 100%;" />
+                    <label for="address1">Address line 1</label>
+                </p-floatLabel>
+            </div>
+            <div class="card flex justify-content-center" style="padding-top: 8px;">
+                <p-floatLabel>
+                    <input pInputText id="address2" style="width: 100%;" />
+                    <label for="address2">Address line 2</label>
+                </p-floatLabel>
+            </div>
+            <div class="card flex justify-content-center" style="padding-top: 8px;">
+                <p-floatLabel>
+                    <input pInputText id="apartment" style="width: 100%;" />
+                    <label for="apartment">Apartment, suite, etc.</label>
+                </p-floatLabel>
+            </div>
+            <div class="card flex justify-content-center" style="padding-top: 8px;">
+                <p-floatLabel>
+                    <input pInputText id="city" style="width: 100%;" />
+                    <label for="city">City</label>
+                </p-floatLabel>
+            </div>
+            <div class="card flex justify-content-center" style="padding-top: 8px;">
+                <p-floatLabel>
+                    <input pInputText id="postalcode" style="width: 50%;" />
+                    <label for="postalcode">Postal code</label>
+                </p-floatLabel>
+            </div>
+        </div>
+
+        <hr style="margin-top: 25px;">
+
+        <div class="Address">
+            <p><b>ID Type </b></p>
+            <div class="flex align-items-center d-flex-space-between" style="padding-bottom: 10px;">
+                <label for="ingredient1" class="ml-2">
+                    Driver's license
+                </label>
+                <p-radioButton name="idType" value="driverLicense" [(ngModel)]="idType" inputId="driverLicense" />
+            </div>
+
+            <div class="flex align-items-center d-flex-space-between " style="padding-bottom: 10px;">
+                <label for="ingredient2" class="ml-2">
+                    Passport
+                </label>
+                <p-radioButton name="idType" value="passport" [(ngModel)]="idType" inputId="passport" />
+            </div>
+
+            <div class="flex align-items-center d-flex-space-between ">
+                <label for="ingredient2" class="ml-2">
+                    National ID
+                </label>
+                <p-radioButton name="idType" value="nic" [(ngModel)]="idType" inputId="nic" />
+            </div>
+        </div>
+
+        <div *ngIf="idType">
+            <hr style="margin-top: 25px;">
+
+            <div class="Address">
+
+                <p *ngIf="idType=='nic'"><b>National ID Number </b></p>
+                <p *ngIf="idType=='passport'"><b>Passport Number </b></p>
+                <p *ngIf="idType=='driverLicense'"><b>Driver's License Number </b></p>
+
+                <div class="card flex justify-content-center" style="padding-top: 8px;">
+                    <p-floatLabel>
+                        <input pInputText id="nicnumber" style="width: 100%;" />
+                    </p-floatLabel>
+                </div>
+            </div>
+        </div>
+
+
+
+        <hr style="margin-top: 25px;">
+
+        <div class="TinorPin">
+            <div style="display: flex;align-items: center;">
+                <div>
+                    <p><b>TIN or PIN </b> </p>
+                </div>
+                <div style="padding-left: 15px;">
+                    <p-inputSwitch onLabel="Y" offLabel="N" [(ngModel)]="tinOrPin" />
+                </div>
+            </div>
+
+            <div class="card flex justify-content-center" style="padding-top: 8px;" *ngIf="tinOrPin">
+                <p-floatLabel>
+                    <input pInputText id="nicnumber" style="width: 100%;" />
+                </p-floatLabel>
+            </div>
+        </div>
+
+        <hr style="margin-top: 25px;">
+    </div>
+
+    <div class="info" *ngIf="!isShowPersonalInfo">
+        <div class="country">
+            <p><b>Country</b></p>
+            <p> Darcy <span>
+                    <i class="pi pi-info-circle"></i>
+                </span></p>
+        </div>
+
+        <hr style="margin-top: 25px;">
+        <div class="phone">
+            <div class="d-flex-space-between">
+                <div>
+                    <p><b>Phone number</b></p>
+                </div>
+                <div>
+                    <p style="text-decoration: underline;"><b>Add</b></p>
+                </div>
+            </div>
+            <p-dropdown [options]="countries" [(ngModel)]="selectedTelCountry" optionLabel="code"
+                [style]="{width:'35%'}" [showClear]="false" placeholder="Your country">
+                <ng-template pTemplate="selectedTelCountry">
+                    <div class="flex align-items-center gap-2">
+                        <img [src]="selectedTelCountry.img" [class]="'flag flag-' + selectedCountry.code.toLowerCase()"
+                            style="width: 18px" />
+                        <div>{{ selectedCountry.name }}</div>
+                    </div>
+                </ng-template>
+                <ng-template let-country pTemplate="item">
+                    <div class="flex align-items-center gap-2">
+                        <img [src]="country.img" [class]="'flag flag-' + country.code.toLowerCase()"
+                            style="width: 18px" />
+                        <div>{{ country.name }}</div>
+                    </div>
+                </ng-template>
+            </p-dropdown>
+            <input type="number" style="width: 65%;" pInputText />
+
+        </div>
+
+        <hr style="margin-top: 25px;">
+        <div class="country" style="padding-bottom: 20px;">
+            <p><b>Identity card</b></p>
+            <p> Make sure your photos aren't blurry and the front of your identity card clearly shows your face</p>
+            <div class="upload-file-card">
+                <i class="pi pi-id-card" style="font-size: 45px;"></i>
+                <p style="font-size: 20px; color: #000;margin-bottom: 5px;">Upload front </p>
+                <p style="margin-top: 0px;">JPEG or PNG only</p>
+            </div>
+            <div class="upload-file-card">
+                <i class="pi pi-id-card" style="font-size: 45px;"></i>
+                <p style="font-size: 20px; color: #000;margin-bottom: 5px;">Upload front </p>
+                <p style="margin-top: 0px;">JPEG or PNG only</p>
+            </div>
+        </div>
+        <p-button label="Add" iconPos="right" />
+
+        <hr style="margin-top: 25px;">
+        <div class="country" style="padding-bottom: 20px;">
+            <p><b>Verification Selfie</b></p>
+            <p> Make sure your photos aren't blurry and the front of your identity card clearly shows your face</p>
+            <div class="upload-file-card">
+                <i class="pi pi-id-card" style="font-size: 45px;"></i>
+                <p style="font-size: 20px; color: #000;margin-bottom: 5px;">Verification selfie </p>
+                <p style="margin-top: 0px;">JPEG or PNG only</p>
+            </div>
+        </div>
+        <p-button label="Add" iconPos="right" />
+
+        <hr style="margin-top: 25px;">
+        <div class="country" style="padding-bottom: 20px;">
+            <p><b>Resume / CV</b></p>
+            <div class="upload-file-card">
+                <i class="pi pi-id-card" style="font-size: 45px;"></i>
+                <p style="font-size: 20px; color: #000;margin-bottom: 5px;">upload resume </p>
+                <p style="margin-top: 0px;">PDF only</p>
+            </div>
+        </div>
+        <p-button label="Add" iconPos="right" />
+
+        <hr style="margin-top: 25px;">
+        <div class="country" style="padding-bottom: 20px;">
+            <p><b>Degrees & Certificates</b></p>
+            <p> Make sure your photos aren't blurry and the front of your identity card clearly shows your face</p>
+            <div class="upload-file-card">
+                <i class="pi pi-id-card" style="font-size: 45px;"></i>
+                <p style="font-size: 20px; color: #000;margin-bottom: 5px;">Upload </p>
+                <p style="margin-top: 0px;">JPEG/PNG/PDF only</p>
+            </div>
+        </div>
+        <p-button label="Add another document" iconPos="right" />
+
+        <hr style="margin-top: 25px;">
+        <div class="phone">
+            <div class="d-flex-space-between">
+                <div>
+                    <p><b>Tax ID</b></p>
+                </div>
+                <div>
+                    <p style="text-decoration: underline;"><b>Add</b></p>
+                </div>
+            </div>
+            <p style="margin: 0;">Not Provided</p>
+            <div>
+            </div>
+        </div>
+
+        <hr style="margin-top: 25px;">
+
+    </div>
+
+</div>

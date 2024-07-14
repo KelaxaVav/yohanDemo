@@ -1,0 +1,99 @@
+<div class="personalInformation">
+    <div class="title">
+        <h3>Personal Information</h3>
+        <div class="firstname">
+            <p><b>Name</b></p>
+            <p>William Darcy <span>
+                    <i class="pi pi-info-circle"></i>
+                </span></p>
+        </div>
+        <hr style="margin-top: 25px;">
+    </div>
+    <div class="title">
+        <p>Bank Name</p>
+        <p-dropdown [options]="bankList" [(ngModel)]="selectedBank" optionLabel="code"
+        [style]="{width:'90%'}" [showClear]="false" placeholder="Bank Name">
+        <ng-template pTemplate="selectedTelCountry">
+            <div class="flex align-items-center gap-2">
+                <!-- <img [src]="selectedBank.img" [class]="'flag flag-' + selectedBank.code.toLowerCase()"
+                    style="width: 18px" /> -->
+                <div>{{ selectedBank.name }}</div>
+            </div>
+        </ng-template>
+        <ng-template let-country pTemplate="item">
+            <div class="flex align-items-center gap-2">
+                <!-- <img [src]="country.img" [class]="'flag flag-' + country.code.toLowerCase()"
+                    style="width: 18px" /> -->
+                <div>{{ country.name }}</div>
+            </div>
+        </ng-template>
+    </p-dropdown>
+        <hr style="margin-top: 25px;">
+    </div>
+
+    <div class="title">
+        <p>Branch Name</p>
+        <p-dropdown [options]="bankList" [(ngModel)]="selectedBank" optionLabel="code"
+        [style]="{width:'80%'}" [showClear]="false" placeholder="Branch Name">
+        <ng-template pTemplate="selectedTelCountry">
+            <div class="flex align-items-center gap-2">
+                <!-- <img [src]="selectedBank.img" [class]="'flag flag-' + selectedBank.code.toLowerCase()"
+                    style="width: 18px" /> -->
+                <div>{{ selectedBank.name }}</div>
+            </div>
+        </ng-template>
+        <ng-template let-country pTemplate="item">
+            <div class="flex align-items-center gap-2">
+                <!-- <img [src]="country.img" [class]="'flag flag-' + country.code.toLowerCase()"
+                    style="width: 18px" /> -->
+                <div>{{ country.name }}</div>
+            </div>
+        </ng-template>
+    </p-dropdown>
+        <hr style="margin-top: 25px;">
+    </div>
+
+    <div class="title">
+        <p>Branch Number</p>
+        <p-dropdown [options]="bankList" [(ngModel)]="selectedBank" optionLabel="code"
+        [style]="{width:'70%'}" [showClear]="false" placeholder="Branch Name">
+        <ng-template pTemplate="selectedTelCountry">
+            <div class="flex align-items-center gap-2">
+                <!-- <img [src]="selectedBank.img" [class]="'flag flag-' + selectedBank.code.toLowerCase()"
+                    style="width: 18px" /> -->
+                <div>{{ selectedBank.name }}</div>
+            </div>
+        </ng-template>
+        <ng-template let-country pTemplate="item">
+            <div class="flex align-items-center gap-2">
+                <!-- <img [src]="country.img" [class]="'flag flag-' + country.code.toLowerCase()"
+                    style="width: 18px" /> -->
+                <div>{{ country.name }}</div>
+            </div>
+        </ng-template>
+    </p-dropdown>
+        <hr style="margin-top: 25px;">
+    </div>
+
+    <div class="title">
+        <p>Account Number</p>
+        <div class="card flex justify-content-center" style="padding-top: 8px;">
+            <p-floatLabel>
+                <input pInputText id="account-no" style="width: 100%;" />
+                <label for="address2">3848925678</label>
+            </p-floatLabel>
+        </div>
+        <hr style="margin-top: 25px;">
+    </div>
+
+    <div class="title">
+        <p>Re-enter  Account Number</p>
+        <div class="card flex justify-content-center" style="padding-top: 8px;">
+            <p-floatLabel>
+                <input pInputText id="re-account-no" style="width: 100%;" />
+                <label for="address2">3848925678</label>
+            </p-floatLabel>
+        </div>
+        <hr style="margin-top: 25px;">
+    </div>
+</div>
